@@ -19,11 +19,11 @@ Concurrency is the ability of a program to run multiple threads at the same time
 
 To get started with this project, clone the repository and build the project using Gradle.
 
-\`\`\`bash
+```bash
 git clone https://github.com/yourusername/kotlin_concurrency_example.git
 cd kotlin_concurrency_example
 ./gradlew build
-\`\`\`
+```
 
 ## Examples
 
@@ -31,7 +31,7 @@ cd kotlin_concurrency_example
 
 This file serves as the entry point of the project. It initializes the \`DataFetcher\` and \`DataProcessor\` classes and demonstrates various concurrency techniques.
 
-\`\`\`kotlin
+```kotlin
 fun main() = runBlocking {
     println("Starting the concurrency example project...")
     val time = measureTimeMillis {
@@ -48,13 +48,13 @@ fun main() = runBlocking {
     }
     println("Completed in $time ms")
 }
-\`\`\`
+```
 
 ### Worker.kt
 
 This file defines the \`Worker\` class, which performs various tasks concurrently.
 
-\`\`\`kotlin
+```kotlin
 class Worker(private val id: Int) {
     suspend fun performTask(taskName: String) {
         println("Worker \$id is performing task: \$taskName")
@@ -62,13 +62,13 @@ class Worker(private val id: Int) {
         println("Worker \$id completed task: \$taskName")
     }
 }
-\`\`\`
+```
 
 ### DataFetcher.kt
 
 This file defines the \`DataFetcher\` class, which simulates fetching data from different sources.
 
-\`\`\`kotlin
+```kotlin
 class DataFetcher {
     suspend fun fetchData(): List<String> = withContext(Dispatchers.IO) {
         val deferredData = (1..5).map { 
@@ -80,13 +80,13 @@ class DataFetcher {
         deferredData.awaitAll()
     }
 }
-\`\`\`
+```
 
 ### DataProcessor.kt
 
 This file defines the \`DataProcessor\` class, which processes the fetched data.
 
-\`\`\`kotlin
+```kotlin
 class DataProcessor {
     suspend fun processData(data: List<String>, workerId: Int) {
         for (item in data) {
@@ -96,27 +96,27 @@ class DataProcessor {
         println("Worker \$workerId completed processing.")
     }
 }
-\`\`\`
+```
 
 ### Utils.kt
 
 This file contains utility functions used throughout the project.
 
-\`\`\`kotlin
+```kotlin
 object Utils {
     fun printMessage(message: String) {
         println("Utils: \$message")
     }
 }
-\`\`\`
+```
 
 ## Running Tests
 
 To run the tests for this project, use the following command:
 
-\`\`\`bash
+```bash
 ./gradlew test
-\`\`\`
+```
 
 ## References
 
