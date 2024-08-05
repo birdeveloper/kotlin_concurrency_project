@@ -124,4 +124,4 @@ For a detailed explanation of the concepts demonstrated in this project, check o
 
 ---
 
-Feel free to explore the code and reach out if you have any questions or suggestions. Let's continue the conversation and improve our coding practices together!
+Feel free to explore the code and reach out if you have any questions or suggestions.
